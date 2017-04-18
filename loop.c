@@ -32,7 +32,7 @@ process_packet(struct bpdu_packet *stp_listen_packet) {
 
 void
 main_loop(int scap) {
-  struct bpdu_packet stp_listen_packet;
+  char buffer[65535];
   int loop = 1;
 
   while(loop) {
