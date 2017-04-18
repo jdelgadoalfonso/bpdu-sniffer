@@ -6,7 +6,7 @@ LDFLAGS +=
 	gcc $(CFLAGS) -c $< -o $@
 
 packet-sniffer: main.o sockets.o loop.o
-	gcc $(LDFLAGS) $< -o $@
+	gcc $(LDFLAGS) main.o sockets.o loop.o -o $@
 
 clean:
 	rm packet-sniffer *.o
