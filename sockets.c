@@ -8,7 +8,7 @@
 
 static int
 create_socket(char *dev, struct ifreq *ifr) {
-  int sock = socket(AF_INET, SOCK_PACKET, htons(ETH_P_ALL));
+  int sock = socket(PF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
 
   // Open raw socket
   if (sock >= 0) {
