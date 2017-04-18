@@ -3,7 +3,7 @@ CFLAGS  += -Wall -g -Og -I$(INC_DIR)
 LDFLAGS +=
 
 %.o: %.c
-	gcc $(CFLAGS) -c $< -o $@ 
+	gcc $(CFLAGS) -c $< -o $@
 
 packet-sniffer: main.o sockets.o loop.o
 	gcc $(LDFLAGS) $< -o $@
