@@ -58,7 +58,7 @@ struct tag_bpdu_packet {
 struct bpdu_packet {
   u_char dmac[6];       /* dest. ether address */
   u_char smac[6];       /* src. ether address */
-  u_char frame_type[2]; /* 0x00 0x26 */
+  u_char frame_size[2]; /* 0x00 0x26 */
   u_char llc_dsap;      /* 0x42 */
   u_char llc_ssap;      /* 0x42 */
   u_char command;       /* 03 command */
