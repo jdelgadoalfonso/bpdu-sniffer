@@ -8,7 +8,9 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
- 
+#include "sockets.h"
+#include "loop.h"
+
 void process_packet(unsigned char *, int);
 void print_ip_header(unsigned char *, int);
 void print_tcp_packet(unsigned char *, int);
