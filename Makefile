@@ -1,5 +1,5 @@
 INC_DIR := includes
-CFLAGS  += -Wall -g -Og -I$(INC_DIR)
+CFLAGS  += -Wall -g -O0 -I$(INC_DIR)
 LDFLAGS +=
 
 %.o: %.c
