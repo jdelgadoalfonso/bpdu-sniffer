@@ -36,7 +36,17 @@ main_loop(int scap) {
   int loop = 1;
 
   while(loop) {
-    read(scap, &stp_listen_packet, sizeof(struct bpdu_packet));
-    process_packet(&stp_listen_packet);
+    size_t s = read(scap, buffer, sizeof(buffer));
+    printf("dmac: %02x:%02x:%02x:%02x:%02x:%02x - %02x %02x\n",
+      ((struct bpdu_packet *) buffer)->dmac[0],
+      ((struct bpdu_packet *) buffer)->dmac[1],
+      ((struct bpdu_packet *) buffer)->dmac[2],
+      ((struct bpdu_packet *) buffer)->dmac[3],
+      ((struct bpdu_packet *) buffer)->dmac[4],
+      ((struct bpdu_packet *) buffer)->dmac[5],
+      ((struct bpdu_packet *) buffer)->llc_dsap,
+      ((struct bpdu_packet *) buffer)->llc_ssap
+    );
+    process_packet((struct bpdu_packet *) buffer);
   }
 }
