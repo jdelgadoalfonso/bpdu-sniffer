@@ -8,11 +8,10 @@ process_packet(struct bpdu_packet *stp_listen_packet) {
   unsigned char k;
   char temp[2], rootid[17], brid[17], htime[5];
 
-  if ((stp_listen_packet->frame_type[0] == 0x00) &&
-      (stp_listen_packet->frame_type[1] == 0x26) &&
-      (stp_listen_packet->llc_dsap      == 0x42) &&
-      (stp_listen_packet->llc_ssap      == 0x42) &&
-      (stp_listen_packet->command       == 0x03)) {
+  if ((stp_listen_packet->llc_dsap == 0x42) &&
+      (stp_listen_packet->llc_ssap == 0x42)) {
+
+    printf("STP packet...\n");
 
     bzero(rootid, sizeof(rootid));
     bzero(brid, sizeof(brid));
